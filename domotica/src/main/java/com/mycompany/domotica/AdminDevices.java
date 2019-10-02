@@ -8,9 +8,9 @@ public class AdminDevices {
     private int deviceCounter;
     
     /*Constructor que inicializa el arreglo */
-    public AdminDevices(int deviceCounter){
+    public AdminDevices(){
         this.devices = new Device[MAX_DEV];
-        this.deviceCounter = deviceCounter;
+        this.deviceCounter = 0;
     }
     
     /*Sets y Gets*/
