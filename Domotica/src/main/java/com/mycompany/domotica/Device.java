@@ -10,12 +10,12 @@ public abstract class Device{
     private boolean status;
     
     /*Constructor*/
-    public Device(String id, String name, String brand, String model){
+    public Device(String id, String name, String brand, String model, boolean status){
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.model = model;
-        status = false;
+        this.status = status;
     }
     
     /*Gets y Sets*/

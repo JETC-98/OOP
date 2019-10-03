@@ -7,8 +7,8 @@ public class TV extends Device implements Control_Volume, Control_Channel{
     private int channel;
     
     /*Constructor*/
-    public TV(String id, String name, String brand, String model){
-        super(id,name,brand,model);
+    public TV(String id, String name, String brand, String model, boolean status){
+        super(id,name,brand,model,status);
     }
     
     /*Set y Get*/
@@ -28,28 +28,28 @@ public class TV extends Device implements Control_Volume, Control_Channel{
     /*Funciones*/
     @Override
     public void turnOn(){
-        
+        setStatus(true);
     }
     @Override
     public void turnOff(){
-        
+        setStatus(false);
     }
     
     @Override
     public void volumeUp(){
-        
+        this.volume++;
     }
     @Override
     public void volumeDown(){
-        
+        this.volume--;
     }
     
     @Override
     public void channelUp(){
-        
+        this.channel++;
     }
     @Override
     public void channelDown(){
-        
+        this.channel--;
     }
 }

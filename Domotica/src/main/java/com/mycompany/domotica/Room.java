@@ -1,25 +1,28 @@
 
 package com.mycompany.domotica;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
     
     private String id;
     private String name;
-    private Device devices[];
+    private List<Device> devices = new ArrayList<>();
     
+    /*Constructor*/
     public Room(String id, String name){
         this.id = id;
         this.name = name;
     }
     
+    /*Set y Get*/
     public void setId(String id){
         this.id = id;
     }
     public void SetName(String name){
         this.name = name;
     }
-    public void SetDevices(Device devices[]){
+    public void setDevices(List<Device> devices){
         this.devices = devices;
     }
     public String getId(){
@@ -28,7 +31,11 @@ public class Room {
     public String getName(){
         return name;
     }
-    public Device[] getDevices(){
+    public Device getDevice(int i){
+        return devices.get(i);
+    }
+    public List<Device> getDevices(){
         return devices;
     }
+  
 }

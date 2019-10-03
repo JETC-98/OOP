@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- *
- * @author amc
- */
 public class ConfigurateHouse {
 
     House house;

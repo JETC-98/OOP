@@ -3,10 +3,11 @@ package com.mycompany.domotica;
 
 public class House {
     
-    final int MAX_AREAS = 20;
+    final int MAX_AREAS = 4;
     private String id;
     private String name;
     private Area areas[];
+    private int areasCounter;
     
     /*Constructor*/
     public House(String id, String name){
@@ -24,6 +25,7 @@ public class House {
     }
     public void setAreas(Area areas[]){
         this.areas = areas;
+        this.areasCounter = areas.length;
     }
     public String getId(){
         return id;
@@ -31,7 +33,13 @@ public class House {
     public String getName(){
         return name;
     }
+    public Area getArea(int i){
+        return areas[i];
+    }
     public Area[] getAreas(){
         return areas;
+    }
+    public int getAreasCounter(){
+        return areasCounter;
     }
 }
