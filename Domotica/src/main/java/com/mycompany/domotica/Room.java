@@ -35,4 +35,18 @@ public class Room {
         return devices;
     }
   
+    
+    /*Método para prender/apagar todos los dispositivos de la habitación*/
+    public void switchEverything(boolean mode){ //Si es true, es prender...
+        int i;
+        if(mode){
+            for(i=0;i<devices.size();i++){
+                devices.get(i).turnOn(); 
+            }
+        }else{
+           for(i=0;i<devices.size();i++){
+                devices.get(i).turnOff(); 
+            } 
+        }
+    }
 }
