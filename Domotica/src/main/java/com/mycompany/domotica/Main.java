@@ -61,12 +61,13 @@ public class Main {
         adminDevice.addDevice(low2, tv2); //Tv de la sala de abajo a la sala de abajo
         
         //Encender
-        adminDevice.getHouse().getArea(0).getRoom(0).getDevice(0).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(0).getDevice(1).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(1).getDevice(0).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(1).getDevice(1).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(0).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(1).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(1).getDevices().get(0).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(1).getDevices().get(1).turnOn();
         
-        
+        //Imprimir todos los dispositivos en la casa con su informacion
+        System.out.println(adminDevice.toStringDevices());
         
     }
     

@@ -54,4 +54,19 @@ public abstract class Device{
     public abstract void turnOn();
     public abstract void turnOff();
     
+    /*Convertir a string la informacion del dispositivo*/
+    public StringBuilder toStringDevice(){
+        StringBuilder sbuilder = new StringBuilder(100);
+        
+        sbuilder.append(id).
+                append(',').
+                append(name).
+                append(',').
+                append(brand).
+                append(',').
+                append(model).
+                append('\n').toString();
+        
+        return sbuilder;
+    }
 }

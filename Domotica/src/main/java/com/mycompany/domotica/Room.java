@@ -31,9 +31,6 @@ public class Room {
     public String getName(){
         return name;
     }
-    public Device getDevice(int i){
-        return devices.get(i);
-    }
     public List<Device> getDevices(){
         return devices;
     }

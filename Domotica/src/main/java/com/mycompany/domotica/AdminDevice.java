@@ -86,7 +86,7 @@ public class AdminDevice {
         for(i=0;i<house.getAreas().length;i++){
             for(j=0;j<house.getArea(i).getRooms().length;j++){
                 for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();j++){
-                    if(house.getArea(i).getRoom(j).getDevice(k).equals(device)){
+                    if(house.getArea(i).getRoom(j).getDevices().get(k).equals(device)){
                         pos = k;
                         break;
                     }
@@ -96,4 +96,60 @@ public class AdminDevice {
         
         return pos;
     }
-}   
+    
+    /*Convertir a string la informacion de los dispositivos en la casa*/
+    public StringBuilder toStringDevices(){
+        int i,j,k;
+        StringBuilder sbuilder = new StringBuilder(1000);
+
+        for(i=0;i<house.getAreas().length;i++){
+            for(j=0;j<house.getArea(i).getRooms().length;j++){
+                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){
+                    for(k=0;k<house.getArea(i).getRoom(i).getDevices().size();k++){
+                            sbuilder.
+                                    append(house.getArea(i).getRoom(j).getDevices().get(k).toStringDevice()).
+                                    toString();
+                        }
+                            
+                    }      
+                }                            
+            }
+        return sbuilder;
+    }
+    
+    
+    /*Convertir a string la informacion de la casa con dispositivos
+    public StringBuilder toStringDevices(){
+        int i,j,k;
+        StringBuilder sbuilder = new StringBuilder(1000);
+
+        for(i=0;i<house.getAreas().length;i++){
+            for(j=0;j<house.getArea(i).getRooms().length;j++){
+                    sbuilder.append(house.getName()).
+                            append('.').
+                            append(house.getArea(i).getName()).
+                            append(':').
+                            append(house.getArea(i).getRoom(j).getName()).
+                            append('.').toString();
+                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){
+                    for(k=0;k<house.getArea(i).getRoom(i).getDevices().size();k++){
+                            sbuilder.append(house.getArea(i).getRoom(j).getDevices().get(k).getId()).
+                            append(',').
+                            append(house.getArea(i).getRoom(j).getDevices().get(k).getName()).
+                            append(',').
+                            append(house.getArea(i).getRoom(j).getDevices().get(k).getModel()).
+                            append(',').
+                            append(house.getArea(i).getRoom(j).getDevices().get(k).getBrand()).
+                            append('.').toString();
+                        }
+                            sbuilder.append('\n').toString();
+                    }else{
+                        sbuilder.append('\n').toString();
+                    }      
+                }                            
+            }
+        return sbuilder;
+    } */
+        
+}
+  
