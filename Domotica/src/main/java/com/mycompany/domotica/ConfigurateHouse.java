@@ -28,7 +28,7 @@ public class ConfigurateHouse
             
    //Lo que sea que se tenga que escribir adentro
    FileWriter writer = new FileWriter(file);
-   writer.write("Test data");
+   writer.write("CONFIGURACION AQUI");
    writer.close();
   } catch (IOException e) {e.printStackTrace();}
  }
