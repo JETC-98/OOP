@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.domotica;
 
-/**
- *
- * @author alext
- */
 public class AdminHouse {
+    
+    private House house;
+    
+    public AdminHouse(House house){
+        this.house = house;
+    }
+    
+    public void setHouse(House house){
+        this.house = house;
+    }
+    public House getHouse(){
+        return house;
+    }
+    
     
 }
