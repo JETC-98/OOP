@@ -28,7 +28,6 @@ public class AdminDevice {
 
     
     /*Funciones CRUD*/
-    
     /*Añadir dispositivo a una habitacion*/
     public boolean addDevice(Room room, Device device){
         boolean flag = false;
@@ -85,7 +84,7 @@ public class AdminDevice {
         int i,j,k;
         for(i=0;i<house.getAreas().length;i++){
             for(j=0;j<house.getArea(i).getRooms().length;j++){
-                for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();j++){
+                for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();k++){
                     if(house.getArea(i).getRoom(j).getDevices().get(k).equals(device)){
                         pos = k;
                         break;
@@ -97,6 +96,8 @@ public class AdminDevice {
         return pos;
     }
     
+    
+    
     /*Convertir a string la informacion de los dispositivos en la casa*/
     public StringBuilder toStringDevices(){
         int i,j,k;
@@ -104,7 +105,7 @@ public class AdminDevice {
 
         for(i=0;i<house.getAreas().length;i++){
             for(j=0;j<house.getArea(i).getRooms().length;j++){
-                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){
+                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){ //Si en el cuarto hay algún dispositivo
                     for(k=0;k<house.getArea(i).getRoom(i).getDevices().size();k++){
                             sbuilder.
                                     append(house.getArea(i).getRoom(j).getDevices().get(k).toStringDevice()).
@@ -116,6 +117,27 @@ public class AdminDevice {
             }
         return sbuilder;
     }
+    
+    /*Indica cuantos dispositivos estan prendidos*/
+    public int howManyOn(){
+        int onCounter = 0;
+        int i,j,k;
+        for(i=0;i<house.getAreas().length;i++){
+            for(j=0;j<house.getArea(i).getRooms().length;j++){
+                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){ //Si en al cuarto hay algun dispositivo
+                    for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();k++){
+                        if(house.getArea(i).getRoom(j).getDevices().get(k).getStatus()){ //Si esta encendido
+                            onCounter++;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return onCounter;
+    }
+    
+    
     
     
     /*Convertir a string la informacion de la casa con dispositivos
