@@ -19,5 +19,19 @@ public class AdminDevice {
     }
     
     /*Funciones CRUD*/
-    
-}
+    public boolean addDevice(){
+        boolean flag = false;
+        
+        return flag;
+    }
+    public boolean removeDevice(){
+        boolean flag = false;
+        
+        return flag;
+    }
+    public boolean updateDevice(){
+        boolean flag = false;
+        
+        return flag;
+    }
+}   
