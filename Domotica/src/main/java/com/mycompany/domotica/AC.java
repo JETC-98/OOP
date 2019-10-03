@@ -2,7 +2,7 @@
 package com.mycompany.domotica;
 
 
-public class AC extends Device{
+public class AC extends Device implements Control_Temperature{
     
     private int temperature;
     
@@ -15,9 +15,17 @@ public class AC extends Device{
     public void turnOn(){
         
     }
-    
     @Override
     public void turnOff(){
+        
+    }
+    
+    @Override
+    public void temperatureUp(){
+        
+    }
+    @Override
+    public void temperatureDown(){
         
     }
 }
