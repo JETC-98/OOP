@@ -4,7 +4,8 @@ package com.mycompany.domotica;
 public class Main {
     
     public static void main(String[] args) {
-
+        
+        /*Informacion de la casa*/
          Room[] lowRooms = new Room[3];
             Room low1 = new Room("1110", "Dining room");
             Room low2 = new Room("1120", "Living room");
@@ -39,16 +40,21 @@ public class Main {
         House house = new House("1000", "alex_house");
         house.setAreas(areas);
         
+        /*Instanciar en admin´s*/
         AdminHouse adminHouse = new AdminHouse(house);
         AdminDevice adminDevice = new AdminDevice(house,0);
         
+        /*Configuración inicial de la casa*/
+        ConfigurateHouse config = new ConfigurateHouse(house);
+        config.configCreate();
+        
+        /*Crear dispositivos*/
         AC ac1 = new AC("1111", "Dining room AC", "LG", "F856975", false);
         Light light1 = new Light("0112", "Dining room light", "Phillips", "A1856978", false);
         TV tv2 = new TV("1121", "Low level Living room TV", "Sony", "S12902", false);
         AC ac2 = new AC("1122", "Low level Living room AC", "Panasonic", "D189756", false);
         
-        adminDevice.addDevice(low1, ac1);
-        System.out.println(adminDevice.getDeviceCounter());
+        
     }
     
 }
