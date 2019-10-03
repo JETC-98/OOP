@@ -46,13 +46,26 @@ public class Main {
         
         /*Configuración inicial de la casa*/
         ConfigurateHouse config = new ConfigurateHouse(house);
-        config.configCreate();
+        //config.configCreate();
         
         /*Crear dispositivos*/
         AC ac1 = new AC("1111", "Dining room AC", "LG", "F856975", false);
         Light light1 = new Light("0112", "Dining room light", "Phillips", "A1856978", false);
         TV tv2 = new TV("1121", "Low level Living room TV", "Sony", "S12902", false);
         AC ac2 = new AC("1122", "Low level Living room AC", "Panasonic", "D189756", false);
+        
+        /*Añadir dispositivos a las habitaciones*/
+        adminDevice.addDevice(low1, ac1); //Añadir el aire del comedor al comedor
+        adminDevice.addDevice(low1, light1); //Luz del comedor al comedor
+        adminDevice.addDevice(low2, ac2); //Aire de la sala de abajo a la sala de abajo
+        adminDevice.addDevice(low2, tv2); //Tv de la sala de abajo a la sala de abajo
+        
+        //Encender
+        adminDevice.getHouse().getArea(0).getRoom(0).getDevice(0).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(0).getDevice(1).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(1).getDevice(0).turnOn();
+        adminDevice.getHouse().getArea(0).getRoom(1).getDevice(1).turnOn();
+        
         
         
     }
