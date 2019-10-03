@@ -48,6 +48,8 @@ public class Main {
         
         House house = new House("1000", "alex_house");
         house.setAreas(areas);
+        
+        ConfigurateHouse configurator = new ConfigurateHouse(house);
     }
     
 }
