@@ -60,7 +60,6 @@ public class Main {
         adminDevice.addDevice(low2, ac2); //Aire de la sala de abajo a la sala de abajo
         adminDevice.addDevice(low2, tv2); //Tv de la sala de abajo a la sala de abajo
         
-        
         //Encender
         adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(0).turnOn();
         adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(1).turnOn();
@@ -77,6 +76,11 @@ public class Main {
         //Apagar todo el comedor
         low1.switchEverything(false);
         System.out.println("Dispositivos encendidos: " + adminDevice.howManyOn());
+        
+        //Imprimir cuantos hay de cada tipo
+        System.out.println("AC: " + AC.getInstancesAC());
+        System.out.println("TV: " + TV.getInstancesTV());
+        System.out.println("Lights: " + Light.getInstancesLight());
     }
     
 }

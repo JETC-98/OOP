@@ -96,7 +96,7 @@ public class AdminDevice {
         return pos;
     }
     
-    
+    /*-----------------------------------------------------------------------------------------------------------------------*/
     
     /*Convertir a string la informacion de los dispositivos en la casa*/
     public StringBuilder toStringDevices(){
@@ -137,8 +137,7 @@ public class AdminDevice {
         return onCounter;
     }
     
-    
-    
+   
     
     /*Convertir a string la informacion de la casa con dispositivos
     public StringBuilder toStringDevices(){

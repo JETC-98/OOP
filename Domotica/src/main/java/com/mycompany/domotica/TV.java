@@ -5,10 +5,12 @@ public class TV extends Device implements Control_Volume, Control_Channel{
     
     private int volume;
     private int channel;
+    private static int instances;
     
     /*Constructor*/
     public TV(String id, String name, String brand, String model, boolean status){
         super(id,name,brand,model,status);
+        instances++;
     }
     
     /*Set y Get*/
@@ -23,6 +25,9 @@ public class TV extends Device implements Control_Volume, Control_Channel{
     }
     public int getChannel(){
         return channel;
+    }
+    public static int getInstancesTV(){
+        return instances;
     }
     
     /*Funciones*/

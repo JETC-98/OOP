@@ -9,6 +9,7 @@ public abstract class Device{
     private String model;
     private boolean status;
     
+    
     /*Constructor*/
     public Device(String id, String name, String brand, String model, boolean status){
         this.id = id;
