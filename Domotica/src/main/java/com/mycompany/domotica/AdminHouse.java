@@ -5,10 +5,12 @@ public class AdminHouse {
     
     private House house;
     
+    /*Constructor*/
     public AdminHouse(House house){
         this.house = house;
     }
     
+    /*Set y Get*/
     public void setHouse(House house){
         this.house = house;
     }
@@ -16,5 +18,6 @@ public class AdminHouse {
         return house;
     }
     
+    /*Funciones CRUD*/
     
 }

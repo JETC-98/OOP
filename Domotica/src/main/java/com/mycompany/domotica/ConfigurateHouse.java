@@ -8,7 +8,13 @@ import java.io.IOException;
  *
  * @author amc
  */
-public class ConfigurateHouse {    
+public class ConfigurateHouse {
+
+    House house;
+    
+    public ConfigurateHouse(House house){
+        this.house = house;
+    }
     
     public static void configCreate(){
 
