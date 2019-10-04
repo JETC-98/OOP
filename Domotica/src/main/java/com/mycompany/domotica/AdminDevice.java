@@ -32,10 +32,10 @@ public class AdminDevice {
     public boolean addDevice(Room room, Device device){
         boolean flag = false;
         int i,j;
-        for(i=0;i<house.getAreasCounter();i++){ /*Numero de areas en la casa*/
-            for(j=0;j<house.getArea(i).getRoomsCounter();j++){ /*Numero de cuartos dentro de esa area*/
-                if(house.getArea(i).getRoom(j).equals(room)){ /*Si encuentra el cuarto donde se quiere añadir el dispositivo*/
-                    house.getArea(i).getRoom(j).getDevices().add(device);
+        for(i=0;i<house.getAreas().size();i++){ /*Numero de areas en la casa*/
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ /*Numero de cuartos dentro de esa area*/
+                if(house.getAreas().get(i).getRooms().get(j).equals(room)){ /*Si encuentra el cuarto donde se quiere añadir el dispositivo*/
+                    house.getAreas().get(i).getRooms().get(j).getDevices().add(device);
                     deviceCounterByHouse++;
                     flag = true;
                 }
@@ -49,10 +49,10 @@ public class AdminDevice {
     public boolean removeDevice(Device device){
         boolean flag = false;
         int i,j;
-        for(i=0;i<house.getAreasCounter();i++){ /*Numero de areas en la casa*/
-            for(j=0;j<house.getArea(i).getRoomsCounter();j++){ /*Numero de cuartos dentro de esa area*/
-                if(house.getArea(i).getRoom(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere eliminar el dispositivo*/
-                    house.getArea(i).getRoom(j).getDevices().remove(device);
+        for(i=0;i<house.getAreas().size();i++){ /*Numero de areas en la casa*/
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ /*Numero de cuartos dentro de esa area*/
+                if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere eliminar el dispositivo*/
+                    house.getAreas().get(i).getRooms().get(j).getDevices().remove(device);
                     deviceCounterByHouse--;
                     flag = true;
                 }
@@ -66,10 +66,10 @@ public class AdminDevice {
     public boolean updateDevice(Device device){
         boolean flag = false;
         int i,j;
-        for(i=0;i<house.getAreasCounter();i++){ /*Numero de areas en la casa*/
-            for(j=0;j<house.getArea(i).getRoomsCounter();j++){ /*Numero de cuartos dentro de esa area*/
-                if(house.getArea(i).getRoom(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere actualizar el dispositivo*/
-                    house.getArea(i).getRoom(j).getDevices().set(getDevicePosition(device), device);
+        for(i=0;i<house.getAreas().size();i++){ /*Numero de areas en la casa*/
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ /*Numero de cuartos dentro de esa area*/
+                if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere actualizar el dispositivo*/
+                    house.getAreas().get(i).getRooms().get(j).getDevices().set(getDevicePosition(device), device);
                     flag = true;
                 }
             }
@@ -82,10 +82,10 @@ public class AdminDevice {
     public int getDevicePosition(Device device){
         int pos = 0;
         int i,j,k;
-        for(i=0;i<house.getAreas().length;i++){
-            for(j=0;j<house.getArea(i).getRooms().length;j++){
-                for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();k++){
-                    if(house.getArea(i).getRoom(j).getDevices().get(k).equals(device)){
+        for(i=0;i<house.getAreas().size();i++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
+                for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
+                    if(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).equals(device)){
                         pos = k;
                         break;
                     }
@@ -99,17 +99,17 @@ public class AdminDevice {
     /*-----------------------------------------------------------------------------------------------------------------------*/
     
     /*Convertir a string la informacion de los dispositivos en la casa*/
-    public StringBuilder toStringDevices(){
+    public StringBuilder toStringDevice(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
-        for(i=0;i<house.getAreas().length;i++){
-            for(j=0;j<house.getArea(i).getRooms().length;j++){
-                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){ //Si en el cuarto hay algún dispositivo
-                    for(k=0;k<house.getArea(i).getRoom(i).getDevices().size();k++){
+        for(i=0;i<house.getAreas().size();i++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
+                if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){ //Si en el cuarto hay algún dispositivo
+                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
                             sbuilder.
-                                    append(house.getArea(i).getRoom(j).getDevices().get(k).toStringDevice()).
-                                    toString();
+                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).toStringDevice()).
+                            toString();
                         }
                             
                     }      
@@ -122,11 +122,11 @@ public class AdminDevice {
     public int howManyOn(){
         int onCounter = 0;
         int i,j,k;
-        for(i=0;i<house.getAreas().length;i++){
-            for(j=0;j<house.getArea(i).getRooms().length;j++){
-                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){ //Si en al cuarto hay algun dispositivo
-                    for(k=0;k<house.getArea(i).getRoom(j).getDevices().size();k++){
-                        if(house.getArea(i).getRoom(j).getDevices().get(k).getStatus()){ //Si esta encendido
+        for(i=0;i<house.getAreas().size();i++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
+                if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){ //Si en el cuarto hay algun dispositivo
+                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
+                        if(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getStatus()){ //Si esta encendido
                             onCounter++;
                         }
                     }
@@ -139,28 +139,28 @@ public class AdminDevice {
     
    
     
-    /*Convertir a string la informacion de la casa con dispositivos
+    //Convertir a string la informacion de la casa con dispositivos
     public StringBuilder toStringDevices(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
-        for(i=0;i<house.getAreas().length;i++){
-            for(j=0;j<house.getArea(i).getRooms().length;j++){
+        for(i=0;i<house.getAreas().size();i++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
                     sbuilder.append(house.getName()).
                             append('.').
-                            append(house.getArea(i).getName()).
+                            append(house.getAreas().get(i).getName()).
                             append(':').
-                            append(house.getArea(i).getRoom(j).getName()).
+                            append(house.getAreas().get(i).getRooms().get(j).getName()).
                             append('.').toString();
-                if(!house.getArea(i).getRoom(j).getDevices().isEmpty()){
-                    for(k=0;k<house.getArea(i).getRoom(i).getDevices().size();k++){
-                            sbuilder.append(house.getArea(i).getRoom(j).getDevices().get(k).getId()).
+                if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){
+                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
+                            sbuilder.append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getId()).
                             append(',').
-                            append(house.getArea(i).getRoom(j).getDevices().get(k).getName()).
+                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getName()).
                             append(',').
-                            append(house.getArea(i).getRoom(j).getDevices().get(k).getModel()).
+                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getModel()).
                             append(',').
-                            append(house.getArea(i).getRoom(j).getDevices().get(k).getBrand()).
+                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getBrand()).
                             append('.').toString();
                         }
                             sbuilder.append('\n').toString();
@@ -170,7 +170,7 @@ public class AdminDevice {
                 }                            
             }
         return sbuilder;
-    } */
+    } 
         
 }
   

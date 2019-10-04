@@ -1,19 +1,19 @@
 
 package com.mycompany.domotica;
+import java.util.ArrayList;
+import java.util.List;
 
 public class House {
     
-    final int MAX_AREAS = 4;
     private String id;
     private String name;
-    private Area areas[];
-    private int areasCounter;
+    private List<Area> areas;
     
     /*Constructor*/
     public House(String id, String name){
         this.id = id;
         this.name = name;
-        areas = new Area[MAX_AREAS];
+        areas  = new ArrayList<>();
     }
     
     /*Set y Get*/
@@ -23,9 +23,8 @@ public class House {
     public void setName(String name){
         this.name = name;
     }
-    public void setAreas(Area areas[]){
+    public void setAreas(List<Area> areas){
         this.areas = areas;
-        this.areasCounter = areas.length;
     }
     public String getId(){
         return id;
@@ -33,28 +32,22 @@ public class House {
     public String getName(){
         return name;
     }
-    public Area getArea(int i){
-        return areas[i];
-    }
-    public Area[] getAreas(){
+    public List<Area> getAreas(){
         return areas;
     }
-    public int getAreasCounter(){
-        return areasCounter;
-    }
-    
+
   /*Convertir a string la informacion de la casa*/
     public StringBuilder toStringHouse(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
-        for(i=0;i<areas.length;i++){
-            for(j=0;j<areas[i].getRooms().length;j++){
+        for(i=0;i<areas.size();i++){
+            for(j=0;j<areas.get(i).getRooms().size();j++){
                          sbuilder.append(name).
                             append('.').
-                            append(areas[i].getName()).
+                            append(areas.get(i).getName()).
                             append(':').
-                            append(areas[i].getRoom(j).getName()).
+                            append(areas.get(i).getRooms().get(j).getName()).
                             append('\n').toString();                   
             }
         } 

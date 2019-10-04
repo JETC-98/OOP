@@ -1,41 +1,47 @@
 
 package com.mycompany.domotica;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     
     public static void main(String[] args) {
         
-        /*Informacion de la casa*/
-         Room[] lowRooms = new Room[3];
-            Room low1 = new Room("1110", "Dining room");
-            Room low2 = new Room("1120", "Living room");
-            Room low3 = new Room("1130", "Kitchen");
-        Room[] upRooms = new Room[3];
-            Room up1 = new Room("1210", "Up Level living room");
-            Room up2 = new Room("1220", "Kid's bedroom");
-            Room up3 = new Room("1230", "Main bedroom");
-        Room[] bkyardRooms = new Room[2];
-            Room bk1 = new Room("1310", "Service room");
-            Room bk2 = new Room("1320", "Terrace");
-            lowRooms[0] = low1;
-            lowRooms[1] = low2;
-            lowRooms[2] = low3;
-            upRooms[0] = up1;
-            upRooms[1] = up2;
-            upRooms[2] = up3;
-            bkyardRooms[0] = bk1;
-            bkyardRooms[1] = bk2;
+        /*CREACIÓN ESTÁTICA DE LA CASA*/
         
-        Area[] areas = new Area[3];
-            Area lowLevel = new Area("1100", "low Level");
-            Area upLevel = new Area("1200", "up Level");
-            Area backyard = new Area("1300", "backyard");
+        /*Creando habitaciones*/
+        List<Room> lowRooms = new ArrayList<>();
+            Room low_Din = new Room("1110", "Dining room");
+            Room low_Liv = new Room("1120", "Living room");
+            Room low_Kit = new Room("1130", "Kitchen");
+        List<Room> upRooms = new ArrayList<>();
+            Room up_Liv = new Room("1210", "Up Level living room");
+            Room up_Kid = new Room("1220", "Kid's bedroom");
+            Room up_Main = new Room("1230", "Main bedroom");
+        List<Room> backyardRooms = new ArrayList<>();
+            Room bk_Serv = new Room("1310", "Service room");
+            Room bk_Terr = new Room("1320", "Terrace");
+            
+            lowRooms.add(low_Din);
+            lowRooms.add(low_Liv);
+            lowRooms.add(low_Kit);
+            upRooms.add(up_Liv);
+            upRooms.add(up_Kid);
+            upRooms.add(up_Main);
+            backyardRooms.add(bk_Serv);
+            backyardRooms.add(bk_Terr);
+        
+        /*Creando Areas*/   
+        List<Area> areas = new ArrayList<>();
+            Area lowLevel = new Area("1100", "Low Level");
+            Area upLevel = new Area("1200", "Up Level");
+            Area backyard = new Area("1300", "Backyard");
         lowLevel.setRooms(lowRooms);
         upLevel.setRooms(upRooms);
-        backyard.setRooms(bkyardRooms);
-        areas[0] = lowLevel;
-        areas[1] = upLevel;
-        areas[2] = backyard;
+        backyard.setRooms(backyardRooms);
+        areas.add(lowLevel);
+        areas.add(upLevel);
+        areas.add(backyard);
         
         House house = new House("1000", "alex_house");
         house.setAreas(areas);
@@ -55,16 +61,16 @@ public class Main {
         AC ac2 = new AC("1122", "Low level Living room AC", "Panasonic", "D189756", false);
         
         /*Añadir dispositivos a las habitaciones*/
-        adminDevice.addDevice(low1, ac1); //Añadir el aire del comedor al comedor
-        adminDevice.addDevice(low1, light1); //Luz del comedor al comedor
-        adminDevice.addDevice(low2, ac2); //Aire de la sala de abajo a la sala de abajo
-        adminDevice.addDevice(low2, tv2); //Tv de la sala de abajo a la sala de abajo
+        adminDevice.addDevice(low_Din, ac1); //Añadir el aire del comedor al comedor
+        adminDevice.addDevice(low_Din, light1); //Luz del comedor al comedor
+        adminDevice.addDevice(low_Liv, ac2); //Aire de la sala de abajo a la sala de abajo
+        adminDevice.addDevice(low_Liv, tv2); //Tv de la sala de abajo a la sala de abajo
         
         //Encender
-        adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(0).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(0).getDevices().get(1).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(1).getDevices().get(0).turnOn();
-        adminDevice.getHouse().getArea(0).getRoom(1).getDevices().get(1).turnOn();
+        adminDevice.getHouse().getAreas().get(0).getRooms().get(0).getDevices().get(0).turnOn();
+        adminDevice.getHouse().getAreas().get(0).getRooms().get(0).getDevices().get(1).turnOn();
+        adminDevice.getHouse().getAreas().get(0).getRooms().get(1).getDevices().get(0).turnOn();
+        adminDevice.getHouse().getAreas().get(0).getRooms().get(1).getDevices().get(1).turnOn();
         
         //Imprimir todos los dispositivos en la casa con su informacion
         System.out.println("Dispositivos en " + house.getName() + ":");
@@ -74,7 +80,7 @@ public class Main {
         System.out.println("Dispositivos encendidos: " + adminDevice.howManyOn());
         
         //Apagar todo el comedor
-        low1.switchEverything(false);
+        low_Din.switchEverything(false);
         System.out.println("Dispositivos encendidos: " + adminDevice.howManyOn());
         
         //Imprimir cuantos hay de cada tipo
