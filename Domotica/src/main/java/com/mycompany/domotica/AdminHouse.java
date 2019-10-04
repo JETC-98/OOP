@@ -44,6 +44,8 @@ public class AdminHouse {
     
     /*Obtener la posición de un Area en un vector de areas*/
     public int getAreaPosition(Area area){
+        int pos;
         
+        return pos;
     }
 }
