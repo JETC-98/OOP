@@ -98,9 +98,9 @@ public class Main {
         
         Room nuevoRoom = new Room("13123", "Habitacion nueva");
         adminHouse.addRoom(nuevaArea, nuevoRoom);
-        System.out.println(house.toStringHouse());*/ 
+        System.out.println(house.toStringHouse()); 
         
-        System.out.println(house.toStringDevicesinHouse());
+        System.out.println(house.toStringDevicesinHouse());*/
 
     }
     
