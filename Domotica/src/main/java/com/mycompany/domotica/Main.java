@@ -7,8 +7,7 @@ public class Main {
     
     public static void main(String[] args) {
         
-        /*CREACIÓN ESTÁTICA DE LA CASA*/
-        
+        /*CREACIÓN INICIAL DE LA CASA*/
         /*Creando habitaciones*/
         List<Room> lowRooms = new ArrayList<>();
             Room low_Din = new Room("1110", "Dining room");
@@ -43,12 +42,13 @@ public class Main {
         areas.add(upLevel);
         areas.add(backyard);
         
+        /*Añadir las areas a la casa*/
         House house = new House("1000", "alex_house");
         house.setAreas(areas);
         
-        /*Instanciar en admin´s*/
-        AdminHouse adminHouse = new AdminHouse(house); //Al crear un nuevo AdminHouse se crea la configuracion inicial de la casa
-        AdminDevice adminDevice = new AdminDevice(house,0);
+        /*Crear los admins*/
+        AdminHouse adminHouse = new AdminHouse(house); //Al instanciar un nuevo AdminHouse se crea la configuracion inicial de la casa
+        AdminDevice adminDevice = new AdminDevice(house,0); //Al instanciar un nuevo AdminDevice se crea la DB inical de los dispositivos
         
         /*Crear dispositivos*/
         AC ac1 = new AC("1111", "Dining room AC", "LG", "F856975", false);
@@ -62,7 +62,7 @@ public class Main {
         adminDevice.addDevice(low_Liv, ac2); //Aire de la sala de abajo a la sala de abajo
         adminDevice.addDevice(low_Liv, tv2); //Tv de la sala de abajo a la sala de abajo
         
-        //Encender
+        //Encenderlos todos uno por uno
         adminDevice.getHouse().getAreas().get(0).getRooms().get(0).getDevices().get(0).turnOn();
         adminDevice.getHouse().getAreas().get(0).getRooms().get(0).getDevices().get(1).turnOn();
         adminDevice.getHouse().getAreas().get(0).getRooms().get(1).getDevices().get(0).turnOn();
