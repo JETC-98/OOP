@@ -142,7 +142,8 @@ public class AdminDevice {
    
     
     /*Convertir a string la informacion de la casa con dispositivos
-    public StringBuilder toStringDevices(){
+    Imprimir todo de todo
+    public StringBuilder toStringEverything(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
@@ -171,7 +172,7 @@ public class AdminDevice {
                     }      
                 }                            
             }
-        return sbuilder;*/
-    } 
-       
+        return sbuilder;
+    } */
+}    
   
