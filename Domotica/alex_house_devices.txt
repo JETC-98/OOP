@@ -2,3 +2,4 @@ alex_house/Low Level/Dining room/1111,Dining room AC,LG,F856975
 alex_house/Low Level/Dining room/0112,Dining room light,Phillips,A1856978
 alex_house/Low Level/Living room/1122,Low level Living room AC,Panasonic,D189756
 alex_house/Low Level/Living room/1121,Low level Living room TV,Sony,S12902
+alex_house/Area nueva/Habitacion nueva/11152,New light name,Phillips,S987652

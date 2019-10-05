@@ -91,7 +91,7 @@ public class Main {
         
         /*-------------------------------------------------------------------------------------------------------------*/
         
-        /*Probando Metodos CRUD
+        /*Probando Metodos CRUD de AdminHouse*/
         Area nuevaArea = new Area("12345", "Area nueva");
         adminHouse.addArea(nuevaArea);
         System.out.println(house.toStringHouse()); 
@@ -100,7 +100,13 @@ public class Main {
         adminHouse.addRoom(nuevaArea, nuevoRoom);
         System.out.println(house.toStringHouse()); 
         
-        System.out.println(house.toStringDevicesinHouse());*/
+        /*Probando Metodos CRUD de AdminDevice*/
+        Light light = new Light("11152", "Desktop light", "Phillips", "S987652", false);
+        TV tv = new TV("1231", "Tv", "Sony", "ASD958", false);
+        adminDevice.addDevice(nuevoRoom, light);
+        adminDevice.addDevice(nuevoRoom, tv);
+        adminDevice.removeDevice(tv);
+        adminDevice.updateDevice(light, "New light name");
 
     }
     
