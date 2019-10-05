@@ -97,7 +97,7 @@ public class Main {
         /*Probando Metodos CRUD*/
         Area nuevaArea = new Area("12345", "Area nueva");
         adminHouse.addArea(nuevaArea);
-        System.out.println(house.toStringHouse());
+
         
         Room nuevoRoom = new Room("13123", "Habitacion nueva");
         adminHouse.addRoom(nuevaArea, nuevoRoom);
