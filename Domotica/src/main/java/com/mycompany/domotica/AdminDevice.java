@@ -74,16 +74,18 @@ public class AdminDevice {
     }
     
     /*Actualizar dispositivo de una habitación*/
-    public boolean updateDevice(Device device){
+    public boolean updateDevice(Device device, String newName){
         boolean flag = false;
-        int i,j;
-        for(i=0;i<house.getAreas().size();i++){ /*Numero de areas en la casa*/
-            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ /*Numero de cuartos dentro de esa area*/
-                if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere actualizar el dispositivo*/
-                    house.getAreas().get(i).getRooms().get(j).getDevices().set(getDevicePosition(device), device);
-                    flag = true;
-                    devicesDB.updateDB();
-                    break;
+        int i,j,k;
+        for(i=0;i<house.getAreas().size();i++){ //Numero de areas en la casa
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ //Numero de cuartos dentro de un area i
+                for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){ //Numero de dispositivos en una habitación j
+                    if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ //Si encuentra el cuarto donde se quiere actualizar el dispositivo
+                        house.getAreas().get(i).getRooms().get(j).getDevices().get(k).setName(newName);
+                        flag = true;
+                        devicesDB.updateDB();
+                        break;
+                    }
                 }
             }
         }
