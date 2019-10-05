@@ -48,6 +48,7 @@ public class AdminHouse {
         if(house.getAreas().contains(area)){ //Si la casa contiene el area
             house.getAreas().remove(area);
             flag = true;
+            configHouse.updateConfig();
         }
         
         return flag;
@@ -61,6 +62,7 @@ public class AdminHouse {
             pos = getAreaPosition(area);
             house.getAreas().get(pos).setName(newName);
             flag = true;
+            configHouse.updateConfig();
         }
         return flag;
     }
@@ -89,6 +91,7 @@ public class AdminHouse {
             if(house.getAreas().get(i).equals(area) && !house.getAreas().get(i).getRooms().contains(room)){ //Si el area se encuentra y no contiene el cuarto a añadir
                 house.getAreas().get(i).getRooms().add(room);
                 flag = true;
+                configHouse.updateConfig();
             }
         }
         return flag;
@@ -103,6 +106,7 @@ public class AdminHouse {
             if(house.getAreas().get(i).getRooms().contains(room)){ //Si se halla el area que contiene el cuarto
                 house.getAreas().get(i).getRooms().remove(room);
                 flag = true;
+                configHouse.updateConfig();
             }
         }
         
@@ -120,6 +124,7 @@ public class AdminHouse {
                 pos = getRoomPosition(room);
                 house.getAreas().get(i).getRooms().get(pos).SetName(newName); //Actualiza el nombre
                 flag = true;
+                configHouse.updateConfig();
                 break;
             }
         }

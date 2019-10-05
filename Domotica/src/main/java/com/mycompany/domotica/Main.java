@@ -70,7 +70,8 @@ public class Main {
         
         
         /*------------------------E V A L U A C I O N-----------------------------------------------------------------*/
-        
+       
+        /*
         //Imprimir todos los dispositivos en la casa con su informacion
         System.out.println("Dispositivos en " + house.getName() + ":");
         System.out.println(adminDevice.toStringDevices());
@@ -93,7 +94,7 @@ public class Main {
         /*Probando Metodos CRUD*/
         Area nuevaArea = new Area("12345", "Area nueva");
         adminHouse.addArea(nuevaArea);
-
+        System.out.println(house.toStringHouse()); 
         
         Room nuevoRoom = new Room("13123", "Habitacion nueva");
         adminHouse.addRoom(nuevaArea, nuevoRoom);
