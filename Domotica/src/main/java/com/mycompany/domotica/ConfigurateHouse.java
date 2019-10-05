@@ -19,7 +19,7 @@ public class ConfigurateHouse {
     /*Configuración inicial de la disposición de la casa*/
     public void initConfig(){
 
-       File file = new File("cfg.txt");
+       File file = new File(house.getName() + ".txt");
 
        try{
            if (file.createNewFile()){
@@ -41,7 +41,7 @@ public class ConfigurateHouse {
     public void updateConfig(){
         
        String updatedData = house.toStringHouse().toString();
-       File file = new File("cfg.txt");
+       File file = new File(house.getName() + ".txt");
        
        try{
            if(file.exists()){
