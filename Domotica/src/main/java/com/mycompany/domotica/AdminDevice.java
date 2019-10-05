@@ -5,11 +5,14 @@ public class AdminDevice {
     
     private House house;
     private int deviceCounterByHouse;
+    private DevicesDB devicesDB;
     
     /*Constructor*/
-    public AdminDevice(House house, int deviceCounterByHouse){
+    public AdminDevice(House house, int deviceCounterByHouse){ //Cuando se instancie un AdminDevice, se creara la BD de los dispositivos
         this.house = house;
         this.deviceCounterByHouse = deviceCounterByHouse;
+        this.devicesDB = new DevicesDB(house);
+        devicesDB.createDB();
     }
     
     /*Set y Get*/
@@ -19,11 +22,17 @@ public class AdminDevice {
     public void setDeviceCounter(int deviceCounterByHouse){
         this.deviceCounterByHouse = deviceCounterByHouse;
     }
+    public void setDevicesDB(DevicesDB devicesDB){
+        this.devicesDB = devicesDB;
+    }
     public int getDeviceCounter(){
         return deviceCounterByHouse;
     }
     public House getHouse(){
         return house;
+    }
+    public DevicesDB getDevicesDB(){
+        return devicesDB;
     }
 
     
@@ -37,6 +46,7 @@ public class AdminDevice {
                 if(house.getAreas().get(i).getRooms().get(j).equals(room)){ /*Si encuentra el cuarto donde se quiere añadir el dispositivo*/
                     house.getAreas().get(i).getRooms().get(j).getDevices().add(device);
                     deviceCounterByHouse++;
+                    devicesDB.updateDB();
                     flag = true;
                 }
             }
@@ -54,6 +64,7 @@ public class AdminDevice {
                 if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere eliminar el dispositivo*/
                     house.getAreas().get(i).getRooms().get(j).getDevices().remove(device);
                     deviceCounterByHouse--;
+                    devicesDB.updateDB();
                     flag = true;
                 }
             }
@@ -71,6 +82,7 @@ public class AdminDevice {
                 if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere actualizar el dispositivo*/
                     house.getAreas().get(i).getRooms().get(j).getDevices().set(getDevicePosition(device), device);
                     flag = true;
+                    devicesDB.updateDB();
                     break;
                 }
             }
