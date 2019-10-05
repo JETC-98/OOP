@@ -1,8 +1,14 @@
-alex_house.Low Level:Dining room
-alex_house.Low Level:Living room
-alex_house.Low Level:Kitchen
-alex_house.Up Level:Up Level living room
-alex_house.Up Level:Kid's bedroom
-alex_house.Up Level:Main bedroom
-alex_house.Backyard:Service room
-alex_house.Backyard:Terrace
+alex_house...
+Low Level:
+	Dining room
+	Living room
+	Kitchen
+Up Level:
+	Up Level living room
+	Kid's bedroom
+	Main bedroom
+Backyard:
+	Service room
+	Terrace
+Area nueva:
+	Habitacion nueva
