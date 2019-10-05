@@ -1,8 +1,8 @@
-alex_house.low Level:Dining room
-alex_house.low Level:Living room
-alex_house.low Level:Kitchen
-alex_house.up Level:Up Level living room
-alex_house.up Level:Kid's bedroom
-alex_house.up Level:Main bedroom
-alex_house.backyard:Service room
-alex_house.backyard:Terrace
+alex_house.Low Level:Dining room
+alex_house.Low Level:Living room
+alex_house.Low Level:Kitchen
+alex_house.Up Level:Up Level living room
+alex_house.Up Level:Kid's bedroom
+alex_house.Up Level:Main bedroom
+alex_house.Backyard:Service room
+alex_house.Backyard:Terrace

@@ -21,8 +21,9 @@ public class AdminHouse {
     
     /*Funciones CRUD*/
     
+    /*Funciones para Areas*/
     /*Añadir un area*/
-    public boolean addArea(){
+    public boolean addArea(Area area){
         boolean flag = false;
         
         return flag;
@@ -42,10 +43,41 @@ public class AdminHouse {
         return flag;
     }
     
-    /*Obtener la posición de un Area en un vector de areas*/
+    /*Obtener la posición de un Area en una lista de areas*/
     public int getAreaPosition(Area area){
-        int pos;
+        int pos = 0;
         
         return pos;
     }
+    
+    
+    /*Funciones para habitaciones*/
+        /*Añadir una habitacion*/
+    public boolean addRoom(Area area, Room room){
+        boolean flag = false;
+        
+        return flag;
+    }
+    
+    /*Eliminar una habitacion*/
+    public boolean removeRoom(Room room){
+        boolean flag = false;
+        
+        return flag;
+    }
+    
+    /*Actualizar una habitacion (nombre)*/
+    public boolean updateRoom(Room room, String newName){
+        boolean flag = false;
+        
+        return flag;
+    }
+    
+    /*Obtener la posición de una habitacion en una lista de habitaciones*/
+    public int getRoomPosition(Area area){
+        int pos = 0;
+        
+        return pos;
+    }
+    
 }

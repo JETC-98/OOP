@@ -139,7 +139,7 @@ public class AdminDevice {
     
    
     
-    //Convertir a string la informacion de la casa con dispositivos
+    /*Convertir a string la informacion de la casa con dispositivos*/
     public StringBuilder toStringDevices(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
