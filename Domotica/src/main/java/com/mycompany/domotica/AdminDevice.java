@@ -99,7 +99,6 @@ public class AdminDevice {
     
     /*-----------------------------------------------------------------------------------------------------------------------*/
     
-    
     /*Indica cuantos dispositivos estan prendidos*/
     public int howManyOn(){
         int onCounter = 0;
