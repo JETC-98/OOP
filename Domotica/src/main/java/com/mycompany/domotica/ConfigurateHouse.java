@@ -13,7 +13,6 @@ public class ConfigurateHouse {
     public ConfigurateHouse(House house){
         this.house = house;
     }
-    public ConfigurateHouse(){}
     
     
     /*Configuración inicial de la disposición de la casa*/
