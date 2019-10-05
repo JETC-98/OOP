@@ -19,19 +19,26 @@ public class AdminHouse {
     }
     
     
-    /*Funciones CRUD*/
+    /*Métodos CRUD*/
     
-    /*Funciones para Areas*/
+    /*Métodos para Areas*/
     /*Añadir un area*/
     public boolean addArea(Area area){
         boolean flag = false;
-        
+        if(!house.getAreas().contains(area)){ //Si el area no se ha añadido
+            house.getAreas().add(area);
+            flag = true;
+        }
         return flag;
     }
     
     /*Eliminar un area*/
     public boolean removeArea(Area area){
         boolean flag = false;
+        if(house.getAreas().contains(area)){ //Si la casa contiene el area
+            house.getAreas().remove(area);
+            flag = true;
+        }
         
         return flag;
     }
@@ -39,29 +46,55 @@ public class AdminHouse {
     /*Actualizar un area (nombre)*/
     public boolean updateArea(Area area, String newName){
         boolean flag = false;
-        
+        int pos;
+        if(house.getAreas().contains(area)){ //Si la casa contiene el area
+            pos = getAreaPosition(area);
+            house.getAreas().get(pos).setName(newName);
+            flag = true;
+        }
         return flag;
     }
     
-    /*Obtener la posición de un Area en una lista de areas*/
+    /*Obtener la posicion de un area dentro de una lista de areas*/
     public int getAreaPosition(Area area){
-        int pos = 0;
-        
+        int pos = -1;
+        int i;
+        for(i=0;i<house.getAreas().size();i++){
+            if(house.getAreas().get(i).equals(i)){ //Cuando encuentre el area devuelve la pos
+                pos = i;
+                break;
+            }
+        }
         return pos;
     }
     
     
-    /*Funciones para habitaciones*/
+    /*Métodos para habitaciones*/
         /*Añadir una habitacion*/
     public boolean addRoom(Area area, Room room){
         boolean flag = false;
+        int i;
         
+        for(i=0;i<house.getAreas().size();i++){
+            if(house.getAreas().get(i).equals(area) && !house.getAreas().get(i).getRooms().contains(room)){ //Si el area se encuentra y no contiene el cuarto a añadir
+                house.getAreas().get(i).getRooms().add(room);
+                flag = true;
+            }
+        }
         return flag;
     }
     
     /*Eliminar una habitacion*/
     public boolean removeRoom(Room room){
         boolean flag = false;
+        int i;
+        
+        for(i=0;i<house.getAreas().size();i++){
+            if(house.getAreas().get(i).getRooms().contains(room)){ //Si se halla el area que contiene el cuarto
+                house.getAreas().get(i).getRooms().remove(room);
+                flag = true;
+            }
+        }
         
         return flag;
     }
@@ -69,15 +102,36 @@ public class AdminHouse {
     /*Actualizar una habitacion (nombre)*/
     public boolean updateRoom(Room room, String newName){
         boolean flag = false;
+        int pos;
+        int i;
+        
+        for(i=0;i<house.getAreas().size();i++){
+            if(house.getAreas().get(i).getRooms().contains(room)){ //Si la casa contiene el cuarto
+                pos = getRoomPosition(room);
+                house.getAreas().get(i).getRooms().get(pos).SetName(newName); //Actualiza el nombre
+                flag = true;
+                break;
+            }
+        }
         
         return flag;
     }
     
-    /*Obtener la posición de una habitacion en una lista de habitaciones*/
-    public int getRoomPosition(Area area){
-        int pos = 0;
+    /*Obtener la posicion de una habitacion en una lista */
+    public int getRoomPosition(Room room){
+        int pos = -1;
+        int i,j;
         
+        for(i=0;i<house.getAreas().size();i++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
+                if(house.getAreas().get(i).getRooms().get(j).equals(room)){
+                    pos = j;
+                    break;
+                }
+            }
+        }
         return pos;
     }
+
     
 }
