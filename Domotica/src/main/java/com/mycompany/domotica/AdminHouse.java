@@ -1,4 +1,6 @@
-
+/*
+Clase para modificar la disposición de la casa
+*/
 package com.mycompany.domotica;
 
 public class AdminHouse {

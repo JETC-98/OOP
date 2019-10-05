@@ -1,4 +1,6 @@
-
+/*
+Todo lo relacionado a los dispositivos de la casa
+*/
 package com.mycompany.domotica;
 
 public class AdminDevice {

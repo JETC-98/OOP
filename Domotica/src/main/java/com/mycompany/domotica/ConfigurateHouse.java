@@ -1,3 +1,7 @@
+/*
+Todo lo relacionado al archivo txt de la disposición de la casa
+*/
+
 package com.mycompany.domotica;
 
 import java.io.File;
@@ -14,6 +18,13 @@ public class ConfigurateHouse {
         this.house = house;
     }
     
+    /*Set y Get*/
+    public void setHouse(House house){
+        this.house = house;
+    }
+    public House getHouse(){
+        return house;
+    }
     
     /*Configuración inicial de la disposición de la casa*/
     public void initConfig(){

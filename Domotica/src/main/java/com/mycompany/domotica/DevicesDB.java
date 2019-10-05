@@ -1,4 +1,6 @@
-
+/*
+Todo lo relacionado al archivo txt de los dispositivos en la casa
+*/
 package com.mycompany.domotica;
 import java.io.File;
 import java.io.FileWriter;
