@@ -99,26 +99,6 @@ public class AdminDevice {
     
     /*-----------------------------------------------------------------------------------------------------------------------*/
     
-    /*Convertir a string la informacion de los dispositivos en la casa
-    Solo imprime los dispositivos*/
-    public StringBuilder toStringDevices(){
-        int i,j,k;
-        StringBuilder sbuilder = new StringBuilder(1000);
-
-        for(i=0;i<house.getAreas().size();i++){
-            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
-                if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){ //Si en el cuarto hay algún dispositivo
-                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){ //Concatena
-                            sbuilder.
-                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).toStringDevice()).
-                            toString();
-                        }
-                            
-                    }      
-                }                            
-            }
-        return sbuilder;
-    }
     
     /*Indica cuantos dispositivos estan prendidos*/
     public int howManyOn(){

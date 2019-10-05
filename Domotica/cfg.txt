@@ -10,5 +10,3 @@ Up Level:
 Backyard:
 	Service room
 	Terrace
-Area nueva:
-	Habitacion nueva

@@ -91,14 +91,16 @@ public class Main {
         
         /*-------------------------------------------------------------------------------------------------------------*/
         
-        /*Probando Metodos CRUD*/
+        /*Probando Metodos CRUD
         Area nuevaArea = new Area("12345", "Area nueva");
         adminHouse.addArea(nuevaArea);
         System.out.println(house.toStringHouse()); 
         
         Room nuevoRoom = new Room("13123", "Habitacion nueva");
         adminHouse.addRoom(nuevaArea, nuevoRoom);
-        System.out.println(house.toStringHouse()); 
+        System.out.println(house.toStringHouse());*/ 
+        
+        System.out.println(house.toStringDevicesinHouse());
 
     }
     
