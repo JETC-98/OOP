@@ -12,10 +12,10 @@ public class ConfigurateHouse {
         this.house = house;
     }
     
+    /*Configuración inicial*/
     public void configCreate(){
 
        File file = new File("cfg.txt");
-       //Crear el archivo
 
        try{
            if (file.createNewFile()){
@@ -23,7 +23,7 @@ public class ConfigurateHouse {
            }else{
                System.out.println("El archivo de la configuracion ya existe.");
            }  
-           //Lo que sea que se tenga que escribir adentro
+
            FileWriter writer = new FileWriter(file);
            writer.write((house.toStringHouse().toString()));
            writer.close();
