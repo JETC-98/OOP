@@ -41,9 +41,12 @@ public class House {
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
+        sbuilder.append(name).
+                append("...").
+                append('\n').toString();
+        
         for(i=0;i<areas.size();i++){ //Concatenar primero cada area aunque no tengan habitaciones
-            sbuilder.append(name).
-                append('.').
+            sbuilder.
                 append(areas.get(i).getName()).
                 append(':').
                 append('\n').toString();
