@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class ConfigurateHouse {
 
-    House house;
+    private House house;
     
     /*Constructores*/
     public ConfigurateHouse(House house){
