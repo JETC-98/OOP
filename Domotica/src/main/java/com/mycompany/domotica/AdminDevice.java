@@ -71,6 +71,7 @@ public class AdminDevice {
                 if(house.getAreas().get(i).getRooms().get(j).getDevices().contains(device)){ /*Si encuentra el cuarto donde se quiere actualizar el dispositivo*/
                     house.getAreas().get(i).getRooms().get(j).getDevices().set(getDevicePosition(device), device);
                     flag = true;
+                    break;
                 }
             }
         }
@@ -80,7 +81,7 @@ public class AdminDevice {
     
     /*Encontrar la posicion de un dispositivo en el arreglo de su habitacion*/
     public int getDevicePosition(Device device){
-        int pos = 0;
+        int pos = -1;
         int i,j,k;
         for(i=0;i<house.getAreas().size();i++){
             for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
@@ -98,15 +99,16 @@ public class AdminDevice {
     
     /*-----------------------------------------------------------------------------------------------------------------------*/
     
-    /*Convertir a string la informacion de los dispositivos en la casa*/
-    public StringBuilder toStringDevice(){
+    /*Convertir a string la informacion de los dispositivos en la casa
+    Solo imprime los dispositivos*/
+    public StringBuilder toStringDevices(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
         for(i=0;i<house.getAreas().size();i++){
             for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
                 if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){ //Si en el cuarto hay algún dispositivo
-                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
+                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){ //Concatena
                             sbuilder.
                             append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).toStringDevice()).
                             toString();
@@ -139,13 +141,13 @@ public class AdminDevice {
     
    
     
-    /*Convertir a string la informacion de la casa con dispositivos*/
+    /*Convertir a string la informacion de la casa con dispositivos
     public StringBuilder toStringDevices(){
         int i,j,k;
         StringBuilder sbuilder = new StringBuilder(1000);
 
         for(i=0;i<house.getAreas().size();i++){
-            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){
+            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ //Imprimir la inf
                     sbuilder.append(house.getName()).
                             append('.').
                             append(house.getAreas().get(i).getName()).
@@ -169,8 +171,7 @@ public class AdminDevice {
                     }      
                 }                            
             }
-        return sbuilder;
+        return sbuilder;*/
     } 
-        
-}
+       
   
