@@ -140,39 +140,5 @@ public class AdminDevice {
     }
     
    
-    
-    /*Convertir a string la informacion de la casa con dispositivos
-    Imprimir todo de todo
-    public StringBuilder toStringEverything(){
-        int i,j,k;
-        StringBuilder sbuilder = new StringBuilder(1000);
-
-        for(i=0;i<house.getAreas().size();i++){
-            for(j=0;j<house.getAreas().get(i).getRooms().size();j++){ //Imprimir la inf
-                    sbuilder.append(house.getName()).
-                            append('.').
-                            append(house.getAreas().get(i).getName()).
-                            append(':').
-                            append(house.getAreas().get(i).getRooms().get(j).getName()).
-                            append('.').toString();
-                if(!house.getAreas().get(i).getRooms().get(j).getDevices().isEmpty()){
-                    for(k=0;k<house.getAreas().get(i).getRooms().get(j).getDevices().size();k++){
-                            sbuilder.append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getId()).
-                            append(',').
-                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getName()).
-                            append(',').
-                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getModel()).
-                            append(',').
-                            append(house.getAreas().get(i).getRooms().get(j).getDevices().get(k).getBrand()).
-                            append('.').toString();
-                        }
-                            sbuilder.append('\n').toString();
-                    }else{
-                        sbuilder.append('\n').toString();
-                    }      
-                }                            
-            }
-        return sbuilder;
-    } */
 }    
   
