@@ -68,7 +68,7 @@ public class Main {
         
         //Imprimir todos los dispositivos en la casa con su informacion
         System.out.println("Dispositivos en " + house.getName() + ":");
-        System.out.println(adminDevice.toStringDevice());
+        System.out.println(adminDevice.toStringDevices());
         
         //Imprimir cuantos estan encendidos
         System.out.println("Dispositivos encendidos: " + adminDevice.howManyOn());
