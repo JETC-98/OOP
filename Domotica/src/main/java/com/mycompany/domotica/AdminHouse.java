@@ -4,18 +4,27 @@ package com.mycompany.domotica;
 public class AdminHouse {
     
     private House house;
+    private ConfigurateHouse configHouse;
     
     /*Constructor*/
-    public AdminHouse(House house){
+    public AdminHouse(House house){ //Al crear un AdminHouse se crea la configuracion inicial de la casa que se reciba
         this.house = house;
+        this.configHouse = new ConfigurateHouse(house);
+        configHouse.initConfig();
     }
     
     /*Set y Get*/
     public void setHouse(House house){
         this.house = house;
     }
+    public void setConfig(ConfigurateHouse configHouse){
+        this.configHouse = configHouse;
+    }
     public House getHouse(){
         return house;
+    }
+    public ConfigurateHouse getConfig(){
+        return configHouse;
     }
     
     
@@ -28,6 +37,7 @@ public class AdminHouse {
         if(!house.getAreas().contains(area)){ //Si el area no se ha añadido
             house.getAreas().add(area);
             flag = true;
+            configHouse.updateConfig();
         }
         return flag;
     }

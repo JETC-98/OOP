@@ -47,12 +47,8 @@ public class Main {
         house.setAreas(areas);
         
         /*Instanciar en admin´s*/
-        AdminHouse adminHouse = new AdminHouse(house);
+        AdminHouse adminHouse = new AdminHouse(house); //Al crear un nuevo AdminHouse se crea la configuracion inicial de la casa
         AdminDevice adminDevice = new AdminDevice(house,0);
-        
-        /*Configuración inicial de la casa*/
-        ConfigurateHouse config = new ConfigurateHouse(house);
-        //config.configCreate();
         
         /*Crear dispositivos*/
         AC ac1 = new AC("1111", "Dining room AC", "LG", "F856975", false);
@@ -101,7 +97,8 @@ public class Main {
         
         Room nuevoRoom = new Room("13123", "Habitacion nueva");
         adminHouse.addRoom(nuevaArea, nuevoRoom);
-        System.out.println(house.toStringHouse());        
+        System.out.println(house.toStringHouse()); 
+
     }
     
 }
