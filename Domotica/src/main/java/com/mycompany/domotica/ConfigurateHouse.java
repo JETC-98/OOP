@@ -17,7 +17,8 @@ public class ConfigurateHouse {
     
     /*Configuración inicial de la disposición de la casa*/
     public void initConfig(){
-
+       
+       String initData = house.toStringHouse().toString();
        File file = new File(house.getName() + ".txt");
 
        try{
@@ -28,7 +29,7 @@ public class ConfigurateHouse {
            }  
 
            try (FileWriter writer = new FileWriter(file)) {
-               writer.write((house.toStringHouse().toString()));
+               writer.write(initData);
            }
 
        }catch (IOException e){
@@ -46,13 +47,13 @@ public class ConfigurateHouse {
            if(file.exists()){
                System.out.println("Se ha realizado la actualización");
            }else{
-              initConfig();
                System.out.println("No existe la configuración inicial, creando...");
+               initConfig();
            }
            
-           FileWriter exFile = new FileWriter(file.getAbsoluteFile());
+           FileWriter exFile = new FileWriter(file.getAbsoluteFile()); //Obtener la información a actualizar
            try (BufferedWriter upFile = new BufferedWriter(exFile)) {
-               upFile.write(updatedData);
+               upFile.write(updatedData); //Sobreescribir
            }
            
        }catch (IOException e){
