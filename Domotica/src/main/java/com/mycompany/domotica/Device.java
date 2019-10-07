@@ -9,13 +9,14 @@ public abstract class Device{
     private String model;
     private boolean status;
     
+    
     /*Constructor*/
-    public Device(String id, String name, String brand, String model){
+    public Device(String id, String name, String brand, String model, boolean status){
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.model = model;
-        status = false;
+        this.status = status;
     }
     
     /*Gets y Sets*/
@@ -54,4 +55,19 @@ public abstract class Device{
     public abstract void turnOn();
     public abstract void turnOff();
     
+    /*Convertir a string la informacion del dispositivo*/
+    public StringBuilder toStringDevice(){
+        StringBuilder sbuilder = new StringBuilder(100);
+        
+        sbuilder.append(id).
+                append(',').
+                append(name).
+                append(',').
+                append(brand).
+                append(',').
+                append(model).
+                append('\n').toString();
+        
+        return sbuilder;
+    }
 }

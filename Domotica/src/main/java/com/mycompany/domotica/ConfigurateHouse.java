@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- *
- * @author amc
- */
 public class ConfigurateHouse {
 
     House house;
@@ -16,7 +12,7 @@ public class ConfigurateHouse {
         this.house = house;
     }
     
-    public static void configCreate(){
+    public void configCreate(){
 
        File file = new File("cfg.txt");
        //Crear el archivo
@@ -29,7 +25,7 @@ public class ConfigurateHouse {
            }  
            //Lo que sea que se tenga que escribir adentro
            FileWriter writer = new FileWriter(file);
-           writer.write("CONFIGURACION AQUI");
+           writer.write((house.toStringHouse().toString()));
            writer.close();
 
        }catch (IOException e){
