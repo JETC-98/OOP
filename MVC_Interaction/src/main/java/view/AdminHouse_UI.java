@@ -59,16 +59,14 @@ public class AdminHouse_UI extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Create a controller, send this view instance and handle the exceptions/outcome with the controller´s methods
+    //Create a controller, send this view instance and handle the possible exceptions/outcome with the controller´s methods
     private void createHouse_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHouse_btnActionPerformed
         AdminHouse_controller controller = new AdminHouse_controller();
         try{
             controller.CreateHouse(this);
         }
         catch(Exception ex){
-            controller.showCreateHouseError(ex,this);
-        }finally{
-            controller.showCreateHouseSucceed(this);
+            controller.showCreateHouseError(ex,this);  
         }
     }//GEN-LAST:event_createHouse_btnActionPerformed
 

@@ -1,12 +1,16 @@
 
 package model;
-import controller.AdminHouse_controller;
 import java.util.Map;
+import java.sql.*;
 
 
 public class Model {
     
-    public void importHouse(Map<String,String> data){
-        
+    //Throw a particular exception(s) so the respective controller can catch it
+    public void importHouse(Map<String,String> data) throws SQLException{ 
+        /*
+        IMPORT ...
+            throw new SQLEXCEPTION;
+        */
     }
 }

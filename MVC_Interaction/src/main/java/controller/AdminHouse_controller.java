@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 public class AdminHouse_controller {
     
@@ -18,29 +19,40 @@ public class AdminHouse_controller {
     public void CreateHouse(AdminHouse_UI view) throws EmptyException, TooLongException{
         this.model = new Model();
         Map<String,String> data = new HashMap<>();
-        data.put("name", view.getHouseName_Input());
+        data.put("name", view.getHouseName_Input()); //Fill the map
         
         if(!validCompleteness(data)){   //Validates that there's no empty input
             throw new EmptyException();
         }else if(data.get("name").length() > 45){ //Validates house name length
             throw new TooLongException();
         }else{
-            model.importHouse(data);
+            
+            try{
+                model.importHouse(data);
+            }
+            catch(Exception ex){        //Catch a model type exception and display it to the view
+                showCreateHouseError(ex, view);
+            }finally{
+                showCreateHouseSucceed(view);
+            }
+            
         }
     }
     
     //Displays if an expected error occured
     public void showCreateHouseError(Exception ex, AdminHouse_UI view){
-        
         if(ex instanceof EmptyException){
             JOptionPane.showMessageDialog(
                     view, "You must type a house name" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }else if(ex instanceof TooLongException){
             JOptionPane.showMessageDialog(
                     view, "House name is too long" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else if(ex instanceof SQLException){
+            JOptionPane.showMessageDialog(
+                    view, "Database error" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(
-                    view, "Something happened", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    view, "Unexpected error", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
     
