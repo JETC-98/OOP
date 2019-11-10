@@ -64,6 +64,7 @@ public class AdminHouse_UI extends JFrame {
         AdminHouse_controller controller = new AdminHouse_controller();
         try{
             controller.CreateHouse(this);
+            controller.showCreateHouseSucceed(this);
         }
         catch(Exception ex){
             controller.showCreateHouseError(ex,this);  

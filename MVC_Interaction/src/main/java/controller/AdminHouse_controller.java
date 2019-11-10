@@ -32,10 +32,7 @@ public class AdminHouse_controller {
             }
             catch(Exception ex){        //Catch a model type exception and display it to the view
                 showCreateHouseError(ex, view);
-            }finally{
-                showCreateHouseSucceed(view);
             }
-            
         }
     }
     
